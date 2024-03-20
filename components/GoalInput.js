@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Button, Modal, StyleSheet, TextInput, View, Image } from "react-native";
+import {
+  Button,
+  Modal,
+  StyleSheet,
+  TextInput,
+  View,
+  Image,
+} from "react-native";
 
 const GoalInput = (props) => {
   const [enteredGoalText, setEnteredGoalText] = useState("");
@@ -17,11 +24,22 @@ const GoalInput = (props) => {
     props.endAddGoalHandler();
   }
 
+  console.log("log something");
+
   return (
     <Modal visible={props.isOpen} animationType="slide">
       <View style={styles.InputContainer}>
-        <Image source={require("../assets/images/icon_book.png")} style={styles.image} />
-        <TextInput placeholder="Your course goal!!" style={styles.textInput} onChangeText={goalInputHandler} value={enteredGoalText.text} />
+        <Image
+          source={require("../assets/images/icon_book.png")}
+          // source={"../assets/images/icon_book.png"}
+          style={styles.image}
+        />
+        <TextInput
+          placeholder="Your course goal!!"
+          style={styles.textInput}
+          onChangeText={goalInputHandler}
+          value={enteredGoalText.text}
+        />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
             <Button title="Cancel" onPress={closeGoal} color="#f31282" />

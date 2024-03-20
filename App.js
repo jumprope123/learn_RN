@@ -29,13 +29,27 @@ export default function App() {
     <>
       <StatusBar style="light" />
       <View style={styles.appContainer}>
-        <Button title="Add New Goal" color="red" onPress={startAddGoalHandler} />
-        <GoalInput addGoalHandler={addGoalHandler} isOpen={modalIsVisible} endAddGoalHandler={endAddGoalHandler} />
+        <Button
+          title="Add New Goal"
+          color="red"
+          onPress={startAddGoalHandler}
+        />
+        <GoalInput
+          addGoalHandler={addGoalHandler}
+          isOpen={modalIsVisible}
+          endAddGoalHandler={endAddGoalHandler}
+        />
         <View style={styles.goalsContainer}>
           <FlatList
             data={courseGoals}
             renderItem={(itemData) => {
-              return <GoalItem id={itemData.item.id} text={itemData.item.text} deleteGoalHandler={deleteGoalHandler} />;
+              return (
+                <GoalItem
+                  id={itemData.item.id}
+                  text={itemData.item.text}
+                  deleteGoalHandler={deleteGoalHandler}
+                />
+              );
             }}
             keyExtractor={(item, index) => {
               return item.id;
